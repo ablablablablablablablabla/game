@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица лидеров</title>
+</head>
+<body>
+    <h1>Таблица лидеров</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Время начала игры</th>
+                <th>Длительность игры (сек)</th>
+                <th>Счет</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in leaderboard %}
+            <tr>
+                <td>{{ player.name }}</td>
+                <td>{{ player.time_added }}</td>
+                <td>{{ "%.2f"|format(player.duration) }}</td>
+                <td>{{ player.coins_collected }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
